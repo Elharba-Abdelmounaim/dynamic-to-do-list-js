@@ -5,6 +5,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const taskInput = document.getElementById('task-input');
     const taskList = document.getElementById('task-list');
 
+     // Add task when button is clicked
+    addButton.addEventListener('click', addTask);
+
+    // Add task when Enter key is pressed
+    taskInput.addEventListener('keypress', (event) => {
+        if (event.key === 'Enter') {
+            addTask();
+        }
+    });
+
     // Function to add a new task
     function addTask() {
         const taskText = taskInput.value.trim(); // Get and trim input value
@@ -36,13 +46,5 @@ document.addEventListener('DOMContentLoaded', () => {
         taskInput.value = "";
     }
 
-    // Add task when button is clicked
-    addButton.addEventListener('click', addTask);
-
-    // Add task when Enter key is pressed
-    taskInput.addEventListener('keypress', (event) => {
-        if (event.key === 'Enter') {
-            addTask();
-        }
-    });
+   
 });
